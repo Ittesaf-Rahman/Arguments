@@ -1,0 +1,28 @@
+print("Fartorial")
+def factorial(x):
+    if x == 0 or x == 1:
+        return 1
+    else:
+        return x * factorial(x - 1)
+print(factorial(10))
+
+
+def cube(number):
+    return number * number * number
+def cal(number):
+    if number % 3 == 0:
+        return cube(number)
+    else:
+        return False
+print(cal(9))
+
+def myFunction(name, greating='Hi'):
+    return f"{name}{greating}"
+z = myFunction("Abir")
+print(z)
+
+def tip(total_Amount, Bill_perc):
+    total = total_Amount * (1 + 0.01 * Bill_perc)
+    total = round(total,2)
+    print(f"Please pay${total}")
+tip(150, 10)
