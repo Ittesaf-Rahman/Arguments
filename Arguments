@@ -1,3 +1,54 @@
+def process_order(item, quantity=1, price = None, * ,discount=0, **extras):
+    if price is None:
+        raise ValueError("Price pe item be specified")
+    total_price = quantity * price
+    print(f"Initial price for {quantity} '{item}' at ${price} each: ${total_price:.2f}")
+
+    if discount:
+        discount_amount = price * (discount / 100)
+        total_price -= discount_amount
+        print(f"Applying {discount}% discount: -${discount_amount:.2f}")
+
+    for extra_name, extar_value in extras.items():
+        total_price += extar_value
+        print(f"Adding extra {extra_name}: +${extar_value:.2f}")
+
+    print(f"final total price : ${total_price:.2f}")
+    return total_price
+
+"""
+
+Processes an order and calculates the total price after applying a discount and any extras.
+
+Parameters:
+
+item (str): The name of the item.
+
+quantity (int): The number of items (default is 1).
+
+price (float): The price per item.
+
+discount (float): Discount percentage to be applied to the total (default is 0).
+
+**extras: Additional keyword arguments representing extras such as tax, delivery fee, etc.
+
+Returns:
+
+float: The final total price after discount and extras.
+
+"""
+
+process_order(
+item="Laptop",
+quantity=2,
+price=999.99,
+discount=10, # keyword-only argument
+tax=50, # additional argument in **extras
+delivery_fee=20
+)
+
+
+
 print("Fartorial")
 def factorial(x):
     if x == 0 or x == 1:
